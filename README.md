@@ -198,7 +198,7 @@ Custom attributes like material, weight.
 
 ## ✅ Submission Checklist
 
-- [x] **ERD uploaded:** `derd.png`
+- [x] **ERD uploaded:** `erd.png`
 - [x] **SQL file completed:** `ecommerce.sql`
 - [x] **Collaboration recorded via GitHub**  
   - Branches used for parallel development  
