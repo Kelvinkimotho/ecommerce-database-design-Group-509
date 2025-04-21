@@ -4,7 +4,6 @@ CREATE TABLE brand (
     name VARCHAR(100) UNIQUE NOT NULL,
     description TEXT
 );
-
 -- 2. Product Category Table
 CREATE TABLE product_category (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
