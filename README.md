@@ -196,6 +196,10 @@ Custom attributes like material, weight.
 | `name`             | VARCHAR(100)   | Attribute name                         |
 | `value`            | TEXT           | Interpreted based on attribute type    |
 
+
+## Our database ERD
+![ERD](erd.png)
+
 ## ✅ Submission Checklist
 
 - [x] **ERD uploaded:** `erd.png`
