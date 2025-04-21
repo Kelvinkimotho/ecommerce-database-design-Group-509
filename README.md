@@ -197,9 +197,6 @@ Custom attributes like material, weight.
 | `value`            | TEXT           | Interpreted based on attribute type    |
 
 
-## Our database ERD
-![ERD](erd.png)
-
 ## ✅ Submission Checklist
 
 - [x] **ERD uploaded:** `erd.png`
@@ -219,6 +216,9 @@ Custom attributes like material, weight.
 - [GitHub Pull Requests](https://docs.github.com/en/pull-requests)
 
 ---
+```
+## Our database ERD
+![ERD](erd.png)
 
 ## 🚀 Let’s Build a Scalable E-Commerce DB Together!
 
