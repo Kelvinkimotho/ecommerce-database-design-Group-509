@@ -220,6 +220,20 @@ Custom attributes like material, weight.
 ## Our database ERD
 ![ERD](erd.png)
 
+## And our final database created on sql server looks like
+# database creation
+![Screenshot 1](screenshots/one.png)
+# Creating tables
+![Screenshot 2](screenshots/two.png)
+![Screenshot 3](screenshots/three.png)
+![Screenshot 4](screenshots/four.png)
+![Screenshot 5](screenshots/five.png)
+# Instecting the database for tables
+![Screenshot 6](screenshots/six.png)
+# Learning about table properties
+![Screenshot 7](screenshots/seven.png)
+
+
 ## 🚀 Let’s Build a Scalable E-Commerce DB Together!
 
 > Design like engineers.  
