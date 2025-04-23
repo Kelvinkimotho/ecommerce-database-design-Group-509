@@ -1,15 +1,22 @@
+-- creating the database
+create database e_commerce_db;
+
+-- select the database to use
+use e_commerce_db;
+
 -- 1. Brand Table
 CREATE TABLE brand (
     brand_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
     description TEXT
 );
+
 -- 2. Product Category Table
 CREATE TABLE product_category (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) UNIQUE NOT NULL,
     parent_id INT,
-    FOREIGN KEY (parent_id) REFERENCES product_category(category_id)
+    FOREIGN KEY (parent_id) REFERENCES product_category(category_id) ON DELETE CASCADE
 );
 
 -- 3. Product Table
@@ -20,8 +27,8 @@ CREATE TABLE product (
     category_id INT,
     base_price DECIMAL(10,2) NOT NULL,
     description TEXT,
-    FOREIGN KEY (brand_id) REFERENCES brand(brand_id),
-    FOREIGN KEY (category_id) REFERENCES product_category(category_id)
+    FOREIGN KEY (brand_id) REFERENCES brand(brand_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES product_category(category_id) ON DELETE CASCADE
 );
 
 -- 4. Product Image Table
@@ -30,7 +37,7 @@ CREATE TABLE product_image (
     product_id INT,
     url VARCHAR(500) NOT NULL,
     alt_text VARCHAR(255),
-    FOREIGN KEY (product_id) REFERENCES product(product_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE
 );
 
 -- 5. Color Table
@@ -51,7 +58,7 @@ CREATE TABLE size_option (
     size_id INT AUTO_INCREMENT PRIMARY KEY,
     size_label VARCHAR(10) NOT NULL,
     category_id INT,
-    FOREIGN KEY (category_id) REFERENCES size_category(size_category_id)
+    FOREIGN KEY (category_id) REFERENCES size_category(size_category_id) ON DELETE CASCADE
 );
 
 -- 8. Product Variation Table
@@ -60,9 +67,9 @@ CREATE TABLE product_variation (
     product_id INT,
     color_id INT,
     size_id INT,
-    FOREIGN KEY (product_id) REFERENCES product(product_id),
-    FOREIGN KEY (color_id) REFERENCES color(color_id),
-    FOREIGN KEY (size_id) REFERENCES size_option(size_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE,
+    FOREIGN KEY (color_id) REFERENCES color(color_id) ON DELETE CASCADE,
+    FOREIGN KEY (size_id) REFERENCES size_option(size_id) ON DELETE CASCADE
 );
 
 -- 9. Product Item Table
@@ -72,7 +79,7 @@ CREATE TABLE product_item (
     sku VARCHAR(50) UNIQUE NOT NULL,
     price DECIMAL(10,2) NOT NULL,
     stock_qty INT DEFAULT 0,
-    FOREIGN KEY (variation_id) REFERENCES product_variation(variation_id)
+    FOREIGN KEY (variation_id) REFERENCES product_variation(variation_id) ON DELETE CASCADE
 );
 
 -- 10. Attribute Type Table
@@ -95,8 +102,7 @@ CREATE TABLE product_attribute (
     type_id INT,
     name VARCHAR(100) NOT NULL,
     value TEXT NOT NULL,
-    FOREIGN KEY (product_id) REFERENCES product(product_id),
-    FOREIGN KEY (category_id) REFERENCES attribute_category(category_id),
-    FOREIGN KEY (type_id) REFERENCES attribute_type(type_id)
+    FOREIGN KEY (product_id) REFERENCES product(product_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES attribute_category(category_id) ON DELETE CASCADE,
+    FOREIGN KEY (type_id) REFERENCES attribute_type(type_id) ON DELETE CASCADE
 );
-
